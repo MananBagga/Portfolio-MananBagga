@@ -1,3 +1,212 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Motion presets */
+    --motion-fast: 150ms;
+    --motion-medium: 300ms;
+    --motion-slow: 500ms;
+    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Color tokens */
+    --color-neon-cyan: #0ff6ff;
+    --color-neon-violet: #7b61ff;
+    --color-neon-mint: #00ffd5;
+    --color-dark: #0b0f14;
+    --color-dark-lighter: #151b23;
+
+    /* Spacing rhythm */
+    --space-unit: 0.25rem;
+
+    /* Z-index layers */
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal: 400;
+    --z-popover: 500;
+    --z-tooltip: 600;
+  }
+
+  * {
+    @apply border-gray-800;
+  }
+
+  body {
+    @apply bg-dark text-gray-100 font-sans antialiased;
+    background-image:
+      radial-gradient(
+        circle at 20% 10%,
+        rgba(15, 246, 255, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(123, 97, 255, 0.08) 0%,
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: rgba(15, 246, 255, 0.3);
+    color: #fff;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-lighter;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neon-cyan/30 rounded-full;
+    transition: background-color var(--motion-medium) var(--motion-ease);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-cyan/50;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply bg-gradient-primary text-white;
+    @apply hover:shadow-neon-md transition-all duration-300;
+    @apply active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply glass neon-border;
+    @apply hover:bg-neon-cyan/10 transition-all duration-300;
+    @apply active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply text-neon-cyan hover:bg-neon-cyan/10;
+    @apply transition-all duration-300;
+    @apply active:scale-95;
+  }
+
+  /* Card variants */
+  .card-glass {
+    @apply glass rounded-2xl p-6;
+    @apply hover:border-neon-cyan/30 transition-all duration-300;
+  }
+
+  .card-neon {
+    @apply glass-strong rounded-2xl p-6;
+    @apply neon-border shadow-neon-md;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  /* Heading styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-3xl lg:text-4xl;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Transition utilities with custom timing */
+  .transition-fast {
+    transition-duration: var(--motion-fast);
+    transition-timing-function: var(--motion-ease);
+  }
+
+  .transition-medium {
+    transition-duration: var(--motion-medium);
+    transition-timing-function: var(--motion-ease);
+  }
+
+  .transition-slow {
+    transition-duration: var(--motion-slow);
+    transition-timing-function: var(--motion-ease);
+  }
+
+  /* Glow effects */
+  .glow-cyan {
+    filter: drop-shadow(0 0 20px rgba(15, 246, 255, 0.5));
+  }
+
+  .glow-violet {
+    filter: drop-shadow(0 0 20px rgba(123, 97, 255, 0.5));
+  }
+
+  .glow-mint {
+    filter: drop-shadow(0 0 20px rgba(0, 255, 213, 0.5));
+  }
+
+  /* Grid patterns */
+  .grid-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(15, 246, 255, 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(15, 246, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 246, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
