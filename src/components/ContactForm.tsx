@@ -37,8 +37,12 @@ export default function ContactForm() {
     try {
       const formspreeId = import.meta.env.VITE_FORMSPREE_ID
 
-      if (!formspreeId) {
-        throw new Error('Formspree ID not configured')
+      if (!formspreeId || formspreeId === 'YOUR_FORMSPREE_ID') {
+        setStatus('error')
+        setErrorMessage(
+          'Contact form not configured yet. Please use email or LinkedIn below.'
+        )
+        return
       }
 
       // Using Formspree
@@ -66,12 +70,16 @@ export default function ContactForm() {
         })
         setTimeout(() => setStatus('idle'), 5000)
       } else {
-        throw new Error('Failed to send message')
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || 'Failed to send message')
       }
-    } catch {
+    } catch (error) {
       setStatus('error')
+      const message = error instanceof Error ? error.message : 'Unknown error'
       setErrorMessage(
-        'Failed to send message. Please try again or use email directly.'
+        message.includes('not configured')
+          ? message
+          : 'Failed to send message. Please try again or use email directly.'
       )
     }
   }
