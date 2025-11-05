@@ -79,11 +79,8 @@ export default function SkillsRadial() {
             whileHover={{ scale: 1.05, y: -5 }}
             onClick={() => setSelectedSkill(skill)}
           >
-            <div className="flex items-center justify-between mb-3">
+            <div className="mb-3">
               <h4 className="font-display text-lg">{skill.name}</h4>
-              <span className="text-neon-cyan text-sm font-mono">
-                {skill.level}%
-              </span>
             </div>
 
             {/* Animated progress bar */}
@@ -135,11 +132,8 @@ export default function SkillsRadial() {
             </p>
 
             <div className="mb-6">
-              <div className="flex items-center justify-between mb-2">
+              <div className="mb-2">
                 <span className="text-sm text-gray-300">Proficiency</span>
-                <span className="text-neon-cyan font-mono">
-                  {selectedSkill.level}%
-                </span>
               </div>
               <div className="h-3 bg-dark-lighter rounded-full overflow-hidden">
                 <motion.div

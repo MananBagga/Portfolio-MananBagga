@@ -1,21 +1,4 @@
 import SkillsRadial from './SkillsRadial'
-import CodeSnippet from './CodeSnippet'
-
-const sampleCode = `// React Hook for smooth animations
-const useScrollAnimation = () => {
-  const [scrollY, setScrollY] = useState(0);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  return scrollY;
-};`
 
 export default function Skills() {
   return (
@@ -32,7 +15,7 @@ export default function Skills() {
       <SkillsRadial />
 
       {/* Code Snippet Showcase */}
-      <div className="mt-16">
+      {/* <div className="mt-16">
         <h3 className="text-2xl font-display mb-8 text-center">
           <span className="text-gradient">Code Snapshot</span>
         </h3>
@@ -42,7 +25,7 @@ export default function Skills() {
           title="Custom React Hook"
           description="Example of a reusable hook for scroll animations"
         />
-      </div>
+      </div> */}
     </section>
   )
 }
