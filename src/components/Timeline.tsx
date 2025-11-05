@@ -6,29 +6,32 @@ const timelineData = [
     year: '2026',
     title: 'Graduation',
     description: 'B.Tech completion with 7.7 CGPA',
-    icon: '🎓',
     color: 'neon-mint',
   },
   {
-    year: '2024',
+    year: '2025',
+    title: 'Founding Software & Web Engineer',
+    description:
+      'Co-founded Flextraff startup, building advanced traffic management solutions with AI/ML',
+    color: 'neon-cyan',
+  },
+  {
+    year: '2025',
     title: 'CIET, NCERT Internship',
     description:
       'Software/Web Developer role working with Django and educational tech',
-    icon: '💼',
-    color: 'neon-cyan',
+    color: 'neon-violet',
   },
   {
     year: '2024',
     title: 'Advanced Projects',
-    description: 'Built Flextraff, PMU WebApp, and Vibe Check quiz application',
-    icon: '🚀',
-    color: 'neon-violet',
+    description: 'Built PMU WebApp, Vibe Check quiz application, and portfolio',
+    color: 'neon-cyan',
   },
   {
     year: '2023',
     title: 'DSA Mastery',
     description: 'Solved 150+ LeetCode problems, 250+ Coding Ninjas MCQs',
-    icon: '💡',
     color: 'neon-mint',
   },
 ]
@@ -51,12 +54,10 @@ export default function Timeline() {
             {/* Year badge */}
             <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
               <motion.div
-                className={`w-16 h-16 rounded-full bg-gradient-to-br from-${item.color} to-neon-violet flex items-center justify-center text-2xl shadow-neon-md`}
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                className={`w-4 h-4 rounded-full bg-gradient-to-br from-${item.color} to-neon-violet shadow-neon-md`}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-              >
-                {item.icon}
-              </motion.div>
+              />
             </div>
 
             {/* Content card */}
