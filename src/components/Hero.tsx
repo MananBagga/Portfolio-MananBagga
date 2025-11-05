@@ -1,14 +1,32 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
+
+const WebGLCanvas = lazy(() => import('./WebGLHero/WebGLCanvas'))
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [scrollY, setScrollY] = useState(0)
+  const [normalizedMouse, setNormalizedMouse] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
+      // Normalize to -1 to 1 range
+      setNormalizedMouse({
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1,
+      })
     }
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -17,17 +35,19 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* WebGL 3D Background */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 grid-lines opacity-20" />
-        <div
-          className="absolute w-96 h-96 bg-neon-cyan/10 rounded-full blur-3xl animate-float"
-          style={{
-            left: `${mousePosition.x * 0.02}px`,
-            top: `${mousePosition.y * 0.02}px`,
-          }}
-        />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-neon-violet/10 rounded-full blur-3xl animate-float animate-delay-300" />
+        <Suspense
+          fallback={
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 grid-lines opacity-20" />
+              <div className="absolute w-96 h-96 bg-neon-cyan/10 rounded-full blur-3xl animate-float top-20 left-20" />
+              <div className="absolute w-96 h-96 bg-neon-violet/10 rounded-full blur-3xl animate-float bottom-20 right-20 animate-delay-300" />
+            </div>
+          }
+        >
+          <WebGLCanvas mousePosition={normalizedMouse} scrollY={scrollY} />
+        </Suspense>
       </div>
 
       <div className="section-container text-center">
@@ -72,17 +92,23 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons with Parallax Effect */}
         <div className="flex flex-wrap gap-4 justify-center animate-slide-up animate-delay-300">
           <button
             onClick={() => scrollToSection('projects')}
-            className="btn-primary"
+            className="btn-primary parallax-cta"
+            style={{
+              transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`,
+            }}
           >
             View Projects
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="btn-secondary"
+            className="btn-secondary parallax-cta"
+            style={{
+              transform: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * -0.01}px)`,
+            }}
           >
             Get In Touch
           </button>
@@ -90,7 +116,10 @@ export default function Hero() {
             href="https://github.com/MananBagga"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost"
+            className="btn-ghost parallax-cta"
+            style={{
+              transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * -0.015}px)`,
+            }}
           >
             GitHub →
           </a>

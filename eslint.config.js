@@ -42,6 +42,26 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       'react/prop-types': 'off',
+      'react/no-unknown-property': [
+        'error',
+        {
+          ignore: [
+            'args',
+            'position',
+            'geometry',
+            'material',
+            'uniforms',
+            'vertexShader',
+            'fragmentShader',
+            'transparent',
+            'wireframe',
+            'side',
+            'depthWrite',
+            'sizeAttenuation',
+            'blending',
+          ],
+        },
+      ],
       'prettier/prettier': 'error',
       '@typescript-eslint/no-unused-vars': [
         'error',

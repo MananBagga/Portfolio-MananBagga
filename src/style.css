@@ -94,6 +94,21 @@ html {
   background: linear-gradient(135deg, #0ff6ff 0%, #7b61ff 100%);
   color: white;
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00ffd5 0%, #0ff6ff 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
 }
 
 .btn-primary:hover {
@@ -104,6 +119,16 @@ html {
 
 .btn-primary:active {
   transform: scale(0.95);
+}
+
+.btn-primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.parallax-cta {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
 
 .btn-secondary {
