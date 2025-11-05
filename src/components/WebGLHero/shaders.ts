@@ -148,6 +148,7 @@ export const meshFragmentShader = `
     float pulse = sin(uTime * 2.0) * 0.1 + 0.9;
     color *= pulse;
     
-    gl_FragColor = vec4(color, 0.8);
+    // Reduce overall opacity to prevent text overlap
+    gl_FragColor = vec4(color, 0.5);
   }
 `

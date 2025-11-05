@@ -44,7 +44,7 @@ function ProceduralBackground({
   })
 
   return (
-    <mesh ref={meshRef} position={[0, 0, -5]}>
+    <mesh ref={meshRef} position={[0, 0, -8]}>
       <planeGeometry
         args={[viewport.width * 2, viewport.height * 2, 128, 128]}
       />
@@ -97,9 +97,9 @@ function InteractiveMesh({ mousePosition, scrollY }: Scene3DProps) {
   })
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} position={[0, 0, -2]}>
       <mesh ref={meshRef}>
-        <icosahedronGeometry args={[1.5, 4]} />
+        <icosahedronGeometry args={[1.2, 4]} />
         <shaderMaterial
           vertexShader={meshVertexShader}
           fragmentShader={meshFragmentShader}
