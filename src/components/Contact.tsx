@@ -1,3 +1,5 @@
+import ContactForm from './ContactForm'
+
 const contactLinks = [
   {
     name: 'Email',
@@ -5,6 +7,7 @@ const contactLinks = [
     href: 'mailto:mananbagga0310@gmail.com',
     icon: '📧',
     color: 'neon-cyan',
+    ariaLabel: 'Send email to Manan Bagga',
   },
   {
     name: 'Phone',
@@ -12,6 +15,7 @@ const contactLinks = [
     href: 'tel:+919784227907',
     icon: '📱',
     color: 'neon-violet',
+    ariaLabel: 'Call Manan Bagga',
   },
   {
     name: 'GitHub',
@@ -19,6 +23,7 @@ const contactLinks = [
     href: 'https://github.com/MananBagga',
     icon: '💻',
     color: 'neon-mint',
+    ariaLabel: 'Visit Manan Bagga GitHub profile',
   },
   {
     name: 'LinkedIn',
@@ -26,14 +31,22 @@ const contactLinks = [
     href: 'https://www.linkedin.com/in/manan-bagga-893189247/',
     icon: '💼',
     color: 'neon-cyan',
+    ariaLabel: 'Connect with Manan Bagga on LinkedIn',
   },
 ]
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-container">
+    <section
+      id="contact"
+      className="section-container"
+      aria-labelledby="contact-heading"
+    >
       <div className="text-center mb-16">
-        <h2 className="font-display text-4xl lg:text-5xl mb-4">
+        <h2
+          id="contact-heading"
+          className="font-display text-4xl lg:text-5xl mb-4"
+        >
           <span className="text-gradient">Get In Touch</span>
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto">
@@ -42,6 +55,12 @@ export default function Contact() {
       </div>
 
       <div className="max-w-4xl mx-auto">
+        {/* Contact Form */}
+        <div className="mb-16">
+          <ContactForm />
+        </div>
+
+        {/* Contact Links */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {contactLinks.map((link, index) => (
             <a
@@ -51,7 +70,8 @@ export default function Contact() {
               rel={
                 link.href.startsWith('http') ? 'noopener noreferrer' : undefined
               }
-              className="card-glass group cursor-pointer hover:border-neon-cyan/50 transition-all duration-300 animate-scale-in"
+              aria-label={link.ariaLabel}
+              className="card-glass group cursor-pointer hover:border-neon-cyan/50 transition-all duration-300 animate-scale-in focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2 focus:ring-offset-dark"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-4">

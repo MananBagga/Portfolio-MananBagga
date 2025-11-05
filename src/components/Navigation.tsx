@@ -34,13 +34,16 @@ export default function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'glass-strong shadow-neon-sm' : 'bg-transparent'
       }`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button
             onClick={() => scrollToSection('#')}
-            className="font-display text-xl text-gradient hover:scale-105 transition-transform"
+            className="font-display text-xl text-gradient hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2 focus:ring-offset-dark rounded"
+            aria-label="Go to home page"
           >
             MB
           </button>
@@ -51,7 +54,8 @@ export default function Navigation() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="text-gray-300 hover:text-neon-cyan transition-colors text-sm font-medium"
+                className="text-gray-300 hover:text-neon-cyan transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-neon-cyan rounded px-2 py-1"
+                aria-label={`Navigate to ${link.name}`}
               >
                 {link.name}
               </button>
