@@ -47,10 +47,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "VITE_FORMSPREE_ID": "@formspree_id",
-    "VITE_GA_TRACKING_ID": "@ga_tracking_id",
-    "VITE_SENTRY_DSN": "@sentry_dsn"
-  }
+  ]
 }
