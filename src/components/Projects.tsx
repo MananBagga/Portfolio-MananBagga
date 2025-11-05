@@ -1,108 +1,117 @@
+import { useState } from 'react'
+import ProjectCard from './ProjectCard'
+import AnimatedSection, { AnimatedItem, itemVariants } from './AnimatedSection'
+import { motion } from 'framer-motion'
+
 const projects = [
   {
     title: 'Flextraff Project',
     description:
-      'Traffic management system with real-time data processing and visualization',
-    tech: ['React', 'Node.js', 'MongoDB'],
+      'Advanced traffic management system with real-time data processing, visualization dashboards, and predictive analytics for urban traffic optimization.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'D3.js'],
     gradient: 'from-neon-cyan to-neon-violet',
     icon: '🚦',
+    category: 'Web',
+    github: 'https://github.com/MananBagga',
   },
   {
     title: 'PMU WebApp',
     description:
-      'Power Management Unit web application for monitoring and control systems',
-    tech: ['React', 'Express', 'RESTful API'],
+      'Power Management Unit web application featuring real-time monitoring, control systems, and analytics for efficient energy management.',
+    tech: ['React', 'Express', 'RESTful API', 'Chart.js'],
     gradient: 'from-neon-violet to-neon-mint',
     icon: '⚡',
+    category: 'Web',
+    github: 'https://github.com/MananBagga',
   },
   {
     title: 'Vibe Check Quiz App',
     description:
-      'Interactive quiz application with dynamic question generation and scoring',
-    tech: ['JavaScript', 'React', 'Tailwind CSS'],
+      'Interactive personality quiz application with dynamic question generation, scoring algorithm, and shareable results with social media integration.',
+    tech: ['JavaScript', 'React', 'Tailwind CSS', 'LocalStorage'],
     gradient: 'from-neon-mint to-neon-cyan',
     icon: '🎯',
+    category: 'Web',
+    liveDemo: '#',
   },
   {
     title: 'Todo List App',
     description:
-      'Feature-rich task management application with local storage persistence',
-    tech: ['React', 'LocalStorage', 'CSS'],
+      'Feature-rich task management application with categories, priorities, deadlines, and local storage persistence for offline functionality.',
+    tech: ['React', 'TypeScript', 'LocalStorage', 'Tailwind CSS'],
     gradient: 'from-neon-cyan to-neon-violet',
     icon: '✅',
+    category: 'Web',
+    github: 'https://github.com/MananBagga',
   },
   {
     title: 'Voting System',
     description:
-      'Linked list based voting system with efficient data structure implementation',
-    tech: ['C++', 'Data Structures', 'Algorithms'],
+      'Efficient voting system using linked list data structure with O(1) insertion and deletion, featuring real-time vote counting and results visualization.',
+    tech: ['C++', 'Data Structures', 'Algorithms', 'OOP'],
     gradient: 'from-neon-violet to-neon-mint',
     icon: '🗳️',
+    category: 'Backend',
   },
   {
     title: 'Sudoku Solver',
     description:
-      'Backtracking algorithm implementation for solving Sudoku puzzles',
-    tech: ['C++', 'Algorithms', 'Recursion'],
+      'Intelligent Sudoku solver using backtracking algorithm with optimization techniques, supporting multiple difficulty levels and solution visualization.',
+    tech: ['C++', 'Algorithms', 'Recursion', 'Backtracking'],
     gradient: 'from-neon-mint to-neon-cyan',
     icon: '🧩',
+    category: 'Backend',
   },
 ]
 
+const categories = ['All', 'Web', 'Backend', 'AI', 'Game']
+
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const filteredProjects =
+    activeCategory === 'All'
+      ? projects
+      : projects.filter(p => p.category === activeCategory)
+
   return (
     <section id="projects" className="section-container">
       <div className="text-center mb-16">
         <h2 className="font-display text-4xl lg:text-5xl mb-4">
           <span className="text-gradient">Featured Projects</span>
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto mb-8">
           A collection of projects showcasing my skills in web development and
           problem-solving
         </p>
-      </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
-          <div
-            key={project.title}
-            className="card-glass group cursor-pointer hover:border-neon-cyan/50 transition-all duration-300"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            {/* Project Icon */}
-            <div
-              className={`w-16 h-16 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center text-3xl mb-4 shadow-neon-md group-hover:shadow-neon-lg transition-shadow`}
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3">
+          {categories.map(category => (
+            <motion.button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeCategory === category
+                  ? 'bg-gradient-primary text-white shadow-neon-md'
+                  : 'glass text-gray-400 hover:text-neon-cyan'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {project.icon}
-            </div>
-
-            {/* Project Title */}
-            <h3 className="text-xl font-display mb-3 text-gradient group-hover:text-neon-cyan transition-colors">
-              {project.title}
-            </h3>
-
-            {/* Project Description */}
-            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-              {project.description}
-            </p>
-
-            {/* Tech Stack Tags */}
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map(tech => (
-                <span
-                  key={tech}
-                  className="text-xs px-3 py-1 bg-dark-lighter rounded-full text-neon-mint border-1 border-neon-mint/20"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Hover Effect Overlay */}
-            <div className="absolute inset-0 border-1 border-neon-cyan rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" />
-          </div>
-        ))}
+              {category}
+            </motion.button>
+          ))}
+        </div>
       </div>
+
+      <AnimatedSection className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProjects.map(project => (
+          <AnimatedItem key={project.title} variants={itemVariants}>
+            <ProjectCard {...project} />
+          </AnimatedItem>
+        ))}
+      </AnimatedSection>
     </section>
   )
 }
