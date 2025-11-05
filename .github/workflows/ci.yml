@@ -51,7 +51,7 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          VITE_FORMSPREE_ID: ${{ vars.VITE_FORMSPREE_ID || secrets.VITE_FORMSPREE_ID }}
+          VITE_FORMSPREE_ID: ${{ secrets.VITE_FORMSPREE_ID || 'placeholder' }}
           
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
