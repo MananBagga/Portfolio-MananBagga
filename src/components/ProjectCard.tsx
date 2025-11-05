@@ -46,7 +46,7 @@ export default function ProjectCard({
         >
           {/* Project Icon */}
           <div
-            className={`w-16 h-16 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-3xl mb-4 shadow-neon-md group-hover:shadow-neon-lg transition-shadow`}
+            className={`w-16 h-16 rounded-xl bg-linear-to-br ${gradient} flex items-center justify-center text-3xl mb-4 shadow-neon-md group-hover:shadow-neon-lg transition-shadow`}
           >
             {icon}
           </div>
@@ -64,7 +64,7 @@ export default function ProjectCard({
             {tech.slice(0, 3).map(t => (
               <span
                 key={t}
-                className="text-xs px-3 py-1 bg-dark-lighter rounded-full text-neon-mint border-1 border-neon-mint/20"
+                className="text-xs px-3 py-1 bg-dark-lighter rounded-full text-neon-mint border border-neon-mint/20"
               >
                 {t}
               </span>
@@ -101,7 +101,7 @@ export default function ProjectCard({
             {tech.map(t => (
               <span
                 key={t}
-                className="text-xs px-2 py-1 bg-neon-violet/10 rounded text-neon-violet border-1 border-neon-violet/30"
+                className="text-xs px-2 py-1 bg-neon-violet/10 rounded text-neon-violet border border-neon-violet/30"
               >
                 {t}
               </span>

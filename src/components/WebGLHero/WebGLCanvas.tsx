@@ -12,7 +12,7 @@ interface WebGLCanvasProps {
 function LoadingSkeleton() {
   return (
     <div className="absolute inset-0 animate-pulse">
-      <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-neon-violet/5 blur-3xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-neon-cyan/5 to-neon-violet/5 blur-3xl" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="w-32 h-32 border-2 border-neon-cyan/30 rounded-full animate-spin" />
       </div>

@@ -40,7 +40,7 @@ export default function Timeline() {
   return (
     <AnimatedSection className="relative">
       {/* Vertical line */}
-      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-neon-cyan via-neon-violet to-neon-mint opacity-30" />
+      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-neon-cyan via-neon-violet to-neon-mint opacity-30" />
 
       <div className="space-y-12">
         {timelineData.map((item, index) => (
@@ -54,7 +54,7 @@ export default function Timeline() {
             {/* Year badge */}
             <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
               <motion.div
-                className={`w-4 h-4 rounded-full bg-gradient-to-br from-${item.color} to-neon-violet shadow-neon-md`}
+                className={`w-4 h-4 rounded-full bg-linear-to-br from-${item.color} to-neon-violet shadow-neon-md`}
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               />

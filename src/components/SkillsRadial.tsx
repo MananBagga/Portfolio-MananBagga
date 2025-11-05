@@ -156,7 +156,7 @@ export default function SkillsRadial() {
                 {selectedSkill.projects.map(project => (
                   <span
                     key={project}
-                    className="text-xs px-3 py-2 bg-neon-violet/10 rounded-lg text-neon-violet border-1 border-neon-violet/30"
+                    className="text-xs px-3 py-2 bg-neon-violet/10 rounded-lg text-neon-violet border border-neon-violet/30"
                   >
                     {project}
                   </span>

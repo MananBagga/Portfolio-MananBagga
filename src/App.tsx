@@ -15,25 +15,25 @@ function App() {
       <Hero />
 
       {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent max-w-4xl mx-auto" />
+      <div className="h-px bg-linear-to-r from-transparent via-neon-cyan/30 to-transparent max-w-4xl mx-auto" />
 
       {/* Skills Section */}
       <Skills />
 
       {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-neon-violet/30 to-transparent max-w-4xl mx-auto" />
+      <div className="h-px bg-linear-to-r from-transparent via-neon-violet/30 to-transparent max-w-4xl mx-auto" />
 
       {/* Projects Section */}
       <Projects />
 
       {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-neon-mint/30 to-transparent max-w-4xl mx-auto" />
+      <div className="h-px bg-linear-to-r from-transparent via-neon-mint/30 to-transparent max-w-4xl mx-auto" />
 
       {/* Experience & Achievements Section */}
       <Experience />
 
       {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent max-w-4xl mx-auto" />
+      <div className="h-px bg-linear-to-r from-transparent via-neon-cyan/30 to-transparent max-w-4xl mx-auto" />
 
       {/* Contact Section */}
       <Contact />
