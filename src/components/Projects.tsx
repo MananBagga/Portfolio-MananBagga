@@ -8,10 +8,10 @@ const projects = [
     title: 'Flextraff Project',
     description:
       'Advanced traffic management system with real-time data processing, visualization dashboards, and predictive analytics for urban traffic optimization.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'D3.js'],
+    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'D3.js', 'AI/ML'],
     gradient: 'from-neon-cyan to-neon-violet',
     icon: '🚦',
-    category: 'Web',
+    category: 'AI',
     github: 'https://github.com/MananBagga',
   },
   {
@@ -62,9 +62,20 @@ const projects = [
     icon: '🧩',
     category: 'Backend',
   },
+  {
+    title: 'Portfolio Website',
+    description:
+      'Modern portfolio with custom WebGL shaders, GLSL-based 3D animations, interactive particle system, and Framer Motion transitions. Built with accessibility and performance in mind.',
+    tech: ['React', 'TypeScript', 'Three.js', 'GLSL', 'WebGL', 'Framer Motion'],
+    gradient: 'from-neon-violet to-neon-cyan',
+    icon: '🎨',
+    category: 'AI',
+    github: 'https://github.com/MananBagga',
+    liveDemo: 'https://mananbagga.dev',
+  },
 ]
 
-const categories = ['All', 'Web', 'Backend', 'AI', 'Game']
+const categories = ['All', 'Web', 'Backend', 'AI']
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All')
