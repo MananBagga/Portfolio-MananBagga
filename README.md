@@ -1,10 +1,16 @@
-# Manan Bagga - Portfolio
+# 🚀 Manan Bagga - Portfolio
 
-A dark, futuristic, performance-first portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.
+> A dark, futuristic, performance-first portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.
 
-![Portfolio Preview](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](./LICENSE)
+
+**🌐 Live:** [mananbagga.dev](https://mananbagga.dev)  
+**📧 Contact:** mananbagga0310@gmail.com  
+**💼 LinkedIn:** [manan-bagga](https://www.linkedin.com/in/manan-bagga-893189247/)
 
 ## 🚀 Features
 
