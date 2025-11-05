@@ -1,5 +1,6 @@
 import Timeline from './Timeline'
-import AnimatedSection, { AnimatedItem, itemVariants } from './AnimatedSection'
+import AnimatedSection from './AnimatedSection'
+import { AnimatedItem, itemVariants } from './animationUtils'
 
 const achievements = [
   {

@@ -1,4 +1,5 @@
 // Error monitoring with Sentry
+import type { ErrorEvent, EventHint } from '@sentry/types'
 
 export const initSentry = async () => {
   if (
@@ -21,7 +22,7 @@ export const initSentry = async () => {
       ],
       replaysSessionSampleRate: 0.1,
       replaysOnErrorSampleRate: 1.0,
-      beforeSend(event: unknown) {
+      beforeSend(event: ErrorEvent, _hint: EventHint) {
         // Filter out non-error events
         const errorEvent = event as { level?: string }
         if (errorEvent.level === 'warning') {

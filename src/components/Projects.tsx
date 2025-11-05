@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ProjectCard from './ProjectCard'
-import AnimatedSection, { AnimatedItem, itemVariants } from './AnimatedSection'
+import AnimatedSection from './AnimatedSection'
+import { AnimatedItem, itemVariants } from './animationUtils'
 import { motion } from 'framer-motion'
 
 const projects = [

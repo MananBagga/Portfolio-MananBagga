@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import AnimatedSection, { AnimatedItem, itemVariants } from './AnimatedSection'
+import AnimatedSection from './AnimatedSection'
+import { AnimatedItem, itemVariants } from './animationUtils'
 
 const timelineData = [
   {
