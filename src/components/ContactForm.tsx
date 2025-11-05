@@ -35,8 +35,14 @@ export default function ContactForm() {
     setStatus('loading')
 
     try {
-      // Using Formspree (replace with your Formspree endpoint)
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID
+
+      if (!formspreeId) {
+        throw new Error('Formspree ID not configured')
+      }
+
+      // Using Formspree
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
