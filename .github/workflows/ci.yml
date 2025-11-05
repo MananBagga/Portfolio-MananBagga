@@ -50,8 +50,8 @@ jobs:
         
       - name: Build project
         run: npm run build
-        env:
-          VITE_FORMSPREE_ID: ${{ secrets.VITE_FORMSPREE_ID || 'placeholder' }}
+        # Note: VITE_FORMSPREE_ID is optional for CI builds
+        # The form will show a friendly message if not configured
           
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
