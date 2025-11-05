@@ -46,7 +46,7 @@ function ProceduralBackground({
   return (
     <mesh ref={meshRef} position={[0, 0, -8]}>
       <planeGeometry
-        args={[viewport.width * 2, viewport.height * 2, 128, 128]}
+        args={[viewport.width * 4, viewport.height * 4, 128, 128]}
       />
       <shaderMaterial
         vertexShader={backgroundVertexShader}
