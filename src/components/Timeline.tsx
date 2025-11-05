@@ -12,7 +12,7 @@ const timelineData = [
     year: '2025',
     title: 'Founding Software & Web Engineer',
     description:
-      'Co-founded Flextraff startup, building advanced traffic management solutions with AI/ML',
+      'Founding engineer at Flextraff startup, building advanced traffic management solutions with AI/ML and IoT',
     color: 'neon-cyan',
   },
   {
